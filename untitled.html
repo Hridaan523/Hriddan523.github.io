@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Our Anniversary - May 30</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff0f5;
+      color: #333;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+    header {
+      background: #ff69b4;
+      color: white;
+      padding: 40px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 3em;
+    }
+    header p {
+      font-size: 1.2em;
+      margin-top: 10px;
+    }
+    section {
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .countdown {
+      font-size: 2em;
+      color: #ff1493;
+      margin: 20px 0;
+    }
+    .story {
+      font-size: 1.1em;
+      line-height: 1.6;
+      margin-bottom: 40px;
+    }
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
+      margin-bottom: 40px;
+    }
+    .gallery img {
+      width: 150px;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 12px;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+      transition: transform 0.3s ease;
+      cursor: pointer;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    footer {
+      background: #ff69b4;
+      color: white;
+      padding: 20px;
+      font-size: 0.9em;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Happy Anniversary!</h1>
+    <p>Celebrating our love on May 30</p>
+  </header>
+
+  <section>
+    <div class="countdown" id="countdown">Loading countdown...</div>
+
+    <div class="story">
+      <h2>Our Story</h2>
+      <p>From the moment we met, our journey has been full of love, laughter, and unforgettable memories. We are so grateful for every day together and excited to celebrate another year of happiness.</p>
+    </div>
+
+    <div class="gallery">
+      <img src="https://via.placeholder.com/150?text=Photo+1" alt="Memory 1" />
+      <img src="https://via.placeholder.com/150?text=Photo+2" alt="Memory 2" />
+      <img src="https://via.placeholder.com/150?text=Photo+3" alt="Memory 3" />
+      <img src="https://via.placeholder.com/150?text=Photo+4" alt="Memory 4" />
+    </div>
+  </section>
+
+  <footer>
+    <p>With love, [Your Names]</p>
+  </footer>
+
+  <script>
+    // Countdown timer script
+    const countdownEl = document.getElementById('countdown');
+    const anniversaryDate = new Date('May 30, 2025 00:00:00').getTime();
+
+    function updateCountdown() {
+      const now = new Date().getTime();
+      const distance = anniversaryDate - now;
+
+      if (distance < 0) {
+        countdownEl.textContent = "Happy Anniversary!";
+        clearInterval(interval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      countdownEl.textContent = `${days}d ${hours}h ${minutes}m ${seconds}s until our special day!`;
+    }
+
+    updateCountdown();
+    const interval = setInterval(updateCountdown, 1000);
+  </script>
+</body>
+</html>
